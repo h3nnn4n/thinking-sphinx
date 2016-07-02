@@ -67,7 +67,7 @@ class ThinkingSphinx::Middlewares::ActiveRecordTranslator <
 
     def result_for(row)
       results_for_models[row['sphinx_internal_class']].detect { |record|
-        record.public_send(context.configuration.settings['primary_key'] || model.primary_key || :id) == row['sphinx_internal_id']
+        record.public_send(context.configuration.settings['primary_key'] || :id) == row['sphinx_internal_id']
       }
     end
 
