@@ -26,7 +26,11 @@ module ThinkingSphinx::Core::Index
   end
 
   def document_id_for_key(key)
-    key * config.indices.count + offset
+    integer_key(key) * config.indices.count + offset
+  end
+
+  def integer_key(key)
+    key.kind_of?(Numeric) ? key : Zlib.crc32(key)
   end
 
   def interpret_definition!
