@@ -22,7 +22,7 @@ module ThinkingSphinx::Scopes
       return super unless sphinx_scopes.keys.include?(method)
 
       query, options = sphinx_scopes[method].call(*args)
-      search query, (options || {})
+      sphinx_search query, (options || {})
     end
   end
 end

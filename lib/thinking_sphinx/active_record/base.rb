@@ -16,7 +16,7 @@ module ThinkingSphinx::ActiveRecord::Base
       merge_search ThinkingSphinx.facets, query, options
     end
 
-    def search(query = nil, options = {})
+    def sphinx_search(query = nil, options = {})
       merge_search ThinkingSphinx.search, query, options
     end
 
